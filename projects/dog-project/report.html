@@ -13814,7 +13814,8 @@ _________________________________________________________________
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When I first tried a somehow similar structure without dropout layers, I observed that the accuracy on the validation set would not decrease after 2 or 3 epochs, but the accuracy on the training set would rise to nearly 100%. Because this was a clear symptom of overfitting, I decided to add two dropout layers (dropout probabilities were adjusted with trials and errors) for regularization. The performances were far better after that (data augmentation also helped).</p>
+<p>I started with two convolutionnal layers with 16 and 6 filters to find patterns in the images. I added a pooling layer after each convolutionnal layer to disminished the number of parameters of the final model. I added two dense layers after flattening the result of the convolutionnal layers to 'combine' the patterns uncovered by the first layers. I used ReLU activations to tackle the issue of gradient vanishing, and made sure that le last layer has exactly one node for each breed possible.
+When I first tried this stucture structure without dropout layers, I observed that the accuracy on the validation set would not decrease after 2 or 3 epochs, but the accuracy on the training set would rise to nearly 100%. Because this was a clear symptom of overfitting, I decided to add two dropout layers (dropout probabilities were adjusted with trials and errors) for regularization. The performances were far better after that. I also used data augmentation, which improved the precision of the model by about 4%.</p>
 
 </div>
 </div>
